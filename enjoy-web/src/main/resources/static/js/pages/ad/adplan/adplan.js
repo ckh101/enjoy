@@ -244,7 +244,7 @@ $(function () {
 
     }
     $.uniform.update();
-    initFileInput("adcreativeImg","adcreativeImgurl","adcreativeImgBtn","smartad/adcreativeImg");
+    initFileInput("adcreativeImg","adcreativeImgurl","adcreativeImgBtn","enjoy/adcreativeImg");
 });
 function initTree(treeId, treeData){
     $("#search"+treeId).hide();
@@ -417,7 +417,7 @@ function filter(node) {
 function initFileInput(fileId,fileInputId,uploadbtn){
     $("#"+fileId).fileinput({
         language : 'zh',
-        uploadUrl:"/smartad-web/admin/advertisers/uploadImage",
+        uploadUrl:"/enjoy-web/admin/advertisers/uploadImage",
         uploadExtraData: function(previewId, index) {   //该插件可以向您的服务器方法发送附加数据。这可以通过uploadExtraData在键值对中设置为关联数组对象来完成。所以如果你有设置uploadExtraData={id:'kv-1'}，在PHP中你可以读取这些数据$_POST['id']
             return {aId:aId, adcreative_type:adcreative_type};
         },
@@ -477,7 +477,7 @@ function initFileInput(fileId,fileInputId,uploadbtn){
                     ,shade: [0.5, '#cac6c5']
                 });
                 var interval = setInterval(function(){
-                    $.ajax({url:"/smartad-web/admin/advertisers/getVideoInfo",
+                    $.ajax({url:"/enjoy-web/admin/advertisers/getVideoInfo",
                         data:{videoId:video_id,aId:aId},
                         type:"POST",
                         success:function(data){
@@ -644,7 +644,7 @@ function changeTemplate(){
          layer.load(1, {
              shade: [0.5, '#cac6c5'] //0.5透明度的白色背景
          });
-         $.ajax({url:"/smartad-web/admin/targetingTemplate/getTargetingById/"+id,
+         $.ajax({url:"/enjoy-web/admin/targetingTemplate/getTargetingById/"+id,
              success:function(data){
                  if (data.data != null) {
                      initTargeting(data.data);
@@ -757,7 +757,7 @@ function reloadEstimate(){
         return targeting;
     }
 
-    $.ajax({url:"/smartad-web/admin/ad/admanager/estimation/get/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/estimation/get/"+aId,
         data:params,
         type:"POST",
         success:function(data){
@@ -843,7 +843,7 @@ function preview(){
         shade: [0.5, '#cac6c5'] //0.5透明度的白色背景
     });
 
-    $.ajax({url:"/smartad-web/admin/ad/admanager/ad/qrcode",
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/qrcode",
         data:params,
         type:"GET",
         success:function(data){
@@ -920,7 +920,7 @@ function saveCampaign(){
     var addType = $("input[name='add_type']:checked").val();
     if("new_campaign" == addType){
         var result = false;
-        $.ajax({url:"/smartad-web/admin/ad/admanager/campaign/save/"+aId,
+        $.ajax({url:"/enjoy-web/admin/ad/admanager/campaign/save/"+aId,
             data:params,
             type:"POST",
             async:false,
@@ -1050,7 +1050,7 @@ function saveAdGroup(){
         return targeting;
     }
     var result = false;
-    $.ajax({url:"/smartad-web/admin/ad/admanager/adgroup/save/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/adgroup/save/"+aId,
         data:params,
         type:"POST",
         async:false,
@@ -1153,7 +1153,7 @@ function saveAdCreative(){
     params["materialUrls"] = imageUrl;
     params["adcreativeType"] = adcreative_type;
     var result = false;
-    $.ajax({url:"/smartad-web/admin/ad/admanager/adcreative/save/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/adcreative/save/"+aId,
         data:params,
         type:"POST",
         async:false,
@@ -1183,7 +1183,7 @@ function saveAd(){
     params["campaign.id"] = campaignId;
     params["adCreative.id"] = adCreativeId;
     params["campaign.configuredStatus"] = configuredStatus;
-    $.ajax({url:"/smartad-web/admin/ad/admanager/ad/save/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/save/"+aId,
         data:params,
         type:"POST",
         success:function(data){
@@ -1659,7 +1659,7 @@ function searchtags(type){
         keyword = $("#search_input_behavior").val();
     }
     if(keyword != ""){
-        $.ajax({url:"/smartad-web/admin/ad/admanager/target_tags/behavior_interest/get/"+aId,
+        $.ajax({url:"/enjoy-web/admin/ad/admanager/target_tags/behavior_interest/get/"+aId,
             data:{type:type,keyword:keyword},
             type:"GET",
             success:function(data){

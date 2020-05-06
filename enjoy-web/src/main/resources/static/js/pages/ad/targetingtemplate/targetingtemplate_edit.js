@@ -403,7 +403,7 @@ function saveAdGroup(){
     layer.load(1, {
         shade: [0.5, '#cac6c5'] //0.5透明度的白色背景
     });
-    $.ajax({url:"/smartad-web/admin/targetingTemplate/save",
+    $.ajax({url:"/enjoy-web/admin/targetingTemplate/save",
         data:params,
         type:"POST",
         success:function(data){

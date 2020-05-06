@@ -17,7 +17,7 @@ if(port == 80 || port == 443){
 }else{
 	source = request.getScheme()+"://"+request.getServerName()+":"+port+context;
 }
-final String webTitle = "腾讯社交广告运营平台";//网站标题
+final String webTitle = "xxx平台";//网站标题
 final String scripts = source+"/static/js";
 final String css = source+"/static/css";
 final String images=source+"/static/images";

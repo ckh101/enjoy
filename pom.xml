@@ -9,18 +9,18 @@
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.hbnet</groupId>
-    <artifactId>smartad</artifactId>
+    <groupId>com.ckh</groupId>
+    <artifactId>enjoy</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>smartad-utils</module>
-        <module>smartad-services</module>
-        <module>smartad-web</module>
-        <module>smartad-engine</module>
-        <module>smartad-dubbo</module>
-        <module>smartad-mongodb</module>
-        <module>smartad-redis</module>
+        <module>enjoy-utils</module>
+        <module>enjoy-services</module>
+        <module>enjoy-web</module>
+        <module>enjoy-engine</module>
+        <module>enjoy-dubbo</module>
+        <module>enjoy-mongodb</module>
+        <module>enjoy-redis</module>
     </modules>
     <repositories>
         <repository>
@@ -184,16 +184,7 @@
             <artifactId>aes</artifactId>
             <version>1.7</version>
         </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>4.0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
-            <version>1.1.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
@@ -240,9 +231,9 @@
         </profile>
         <profile>
             <!-- 生产环境 -->
-            <id>online</id>
+            <id>pro</id>
             <properties>
-                <profiles.active>online</profiles.active>
+                <profiles.active>pro</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -255,7 +246,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.hbnet.fastsh.monitor.FastshApplication</mainClass>
+                    <mainClass>com.ckh.enjoy.FastshApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

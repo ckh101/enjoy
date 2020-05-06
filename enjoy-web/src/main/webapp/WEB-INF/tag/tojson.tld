@@ -6,7 +6,7 @@
     <!-- 将对象format成json字符串 -->
     <function>
         <name>toJsonString</name>
-        <function-class>com.hbnet.fastsh.utils.ELToJson</function-class>
+        <function-class>com.ckh.enjoy.utils.ELToJson</function-class>
         <function-signature>java.lang.String toJson(java.lang.Object)</function-signature>
         <example>${el:toJsonString(value)}</example>
     </function>

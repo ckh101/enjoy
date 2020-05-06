@@ -84,7 +84,7 @@ function batchadd(){
     params["adId"] = adId;
     params["ads"] = JSON.stringify(ads);
     params["addType"] = $("input[name='add_type']:checked").val();
-    $.ajax({url:"/smartad-web/admin/ad/admanager/ad/adplan/batchsave/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/adplan/batchsave/"+aId,
         data:params,
         type:"POST",
         success:function(data){

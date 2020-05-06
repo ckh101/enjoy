@@ -73,24 +73,7 @@
             	password.val($.md5(password.val().toString()));
             	</c:if>
             	--%>
-                var advs_selected = "";
-                $('#advs_selected option:selected').each(function () {
-                    if(advs_selected == ""){
-                        advs_selected = $(this).val();
-                    }else{
-                        advs_selected = advs_selected+","+$(this).val();
-                    }
-                });
-                $("#advs").val(advs_selected);
-                var wx_advs_selected = "";
-                $('#wx_advs_selected option:selected').each(function () {
-                    if(wx_advs_selected == ""){
-                        wx_advs_selected = $(this).val();
-                    }else{
-                        wx_advs_selected = wx_advs_selected+","+$(this).val();
-                    }
-                });
-                $("#wxadvs").val(wx_advs_selected);
+
                 $(e.target).formSubmit({
                     success: function () {
                         loadMenu();
@@ -105,26 +88,7 @@
                 $("#accountType").val("${user.accountType}");
                 $("#systemStatus").val("${user.systemStatus}");
             </c:if>
-            <c:if test="${advsSelected != null}">
-               var advsSelected = "${advsSelected}".split(",");
-               for(var i = 0; i < advsSelected.length; i++){
-                   var option = "#advs_selected option[value='"+advsSelected[i]+"']";
-                   $(option).attr("selected", true);
-               }
-                $('#advs_selected').multiselect('rebuild');
-                $("#advs_selected").multiselect('refresh');
-                $("input:checkbox").uniform();
-            </c:if>
-            <c:if test="${wxAdvsSelected != null}">
-                var wxAdvsSelected = "${wxAdvsSelected}".split(",");
-                for(var i = 0; i < wxAdvsSelected.length; i++){
-                    var option = "#wx_advs_selected option[value='"+wxAdvsSelected[i]+"']";
-                    $(option).attr("selected", true);
-                }
-                $('#wx_advs_selected').multiselect('rebuild');
-                $("#wx_advs_selected").multiselect( 'refresh' );
-                $("input:checkbox").uniform();
-            </c:if>
+
             $(".bootstrap-select").selectpicker();
             $(".dictionary").formatConfigData();
         });
@@ -153,26 +117,13 @@
                         <label>手机号码</label>
                         <input type="text" value="${user.phone}" class="form-control" name="phone"  id="phone" placeholder="请输入手机号码">
                     </div>
-                    <%--
-                    <c:if test="${user==null}">
-                        <div class="form-group">
-                            <label>密码</label>
-                            <input type="password" class="form-control" name="password" id="password" required maxlength="30" placeholder="请输入密码">
-                        </div>
-                        <div class="form-group">
-                            <label>确认密码</label>
-                            <input type="password" class="form-control" name="confirmPassword" required maxlength="30" placeholder="请再次输入密码">
-                        </div>
-                    </c:if>
-                    --%>
                     <div class="form-group">
                         <label>账号类型</label>
                         <select name="accountType" id="accountType" class="bootstrap-select" data-width="100%">
                             <option>选择账号类型</option>
-                            <c:if test="${_user.accountType == 'SYSTEM'}">
-                                <option value="SYSTEM">系统</option>
-                            </c:if>
-                            <option value="ADVERTISER">广告主</option>
+
+                            <option value="SYSTEM">系统</option>
+
                         </select>
                     </div>
                     <div class="form-group">
@@ -180,43 +131,12 @@
                         <select name="roleId" id="roleId" class="bootstrap-select" required data-width="100%">
                             <option>选择角色</option>
                             <c:forEach items="${rlist}" var="role">
-                                <c:choose>
-                                    <c:when test="${_user.accountType == 'ADVERTISER'}">
-                                        <c:if test="${fn:startsWith(role.flagStr, 'ad_') && role.flagStr != 'ad_sys'}">
-                                            <option value="${role.id}">${role.roleName}</option>
-                                        </c:if>
-                                    </c:when>
-                                    <c:otherwise>
                                         <option value="${role.id}">${role.roleName}</option>
-                                    </c:otherwise>
-                                </c:choose>
+
                             </c:forEach>
                         </select>
                     </div>
-                    <c:if test="${!fn:startsWith(role.flagStr, 'pdd_')}">
-                        <div class="form-group">
-                            <label><span class="text-semibold">授权广点通广告主</span></label>
-                            <input type="hidden" id="advs" name="advs" value="">
-                            <div class="multi-select-full">
-                                <select class="multiselect-filtering" id="advs_selected" required multiple="multiple">
-                                    <c:forEach items="${advs}" var="obj">
-                                        <option value="${obj.id}">${obj.corporationName}(${obj.accountId})</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
-                    </c:if>
-                    <%--<div class="form-group">
-                        <label><span class="text-semibold">授权微信广告主</span></label>
-                        <input type="hidden" id="wxadvs" name="wxadvs" value="">
-                        <div class="multi-select-full">
-                            <select class="multiselect-filtering" id="wx_advs_selected" required multiple="multiple">
-                                <c:forEach items="${wxadvs}" var="obj">
-                                    <option value="${obj.id}">${obj.appName}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>--%>
+
                     <div class="form-group">
                         <label>状态</label>
                         <select name="systemStatus" id="systemStatus" class="bootstrap-select" data-width="100%">

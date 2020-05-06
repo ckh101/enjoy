@@ -50,11 +50,6 @@
 	$(function () {
         //初始化根目录
         setContext('${source}/');
-        var defaultPage = ["客户","客户管理","${source}/admin/advertisers"];
-        <c:if test="${not empty role && role.flagStr == 'pdd_sys'}">
-        defaultPage = ["店铺","我的店铺","${source}/admin/pdd/store/my"];
-        </c:if>
-		loadMenu(defaultPage[0],defaultPage[1],defaultPage[2]);
     });
 	</script>
 

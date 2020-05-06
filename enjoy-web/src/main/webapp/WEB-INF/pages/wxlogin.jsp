@@ -268,7 +268,7 @@
         var obj = new WxLogin({
             self_redirect:false,
             id:"qrcode",
-            appid: "wx7822f5784bb7ece0",
+            appid: "",
             scope: "snsapi_login",
             redirect_uri: encodeURI("${source}/logincheck"),
             state: "${token}",

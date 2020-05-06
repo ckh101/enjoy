@@ -4,7 +4,7 @@
     <div class="navbar navbar-inverse">
         <div class="navbar-header">
             <a style="margin-top: -6px;" class="navbar-brand" href="javascript:void(0);">
-                <img style="height: 28px;" src="https://img.bazhuay.com/yptm/images/2019/9/logoggg_1567409817024.png" alt="">
+                <img style="height: 28px;" src="" alt="">
             </a>
         </div>
         <div class="navbar-collapse collapse bgc-blue-main" id="navbar-mobile">
@@ -16,7 +16,7 @@
                     <div class="breadcrumb-line-wide">
                         <ul class="breadcrumb">
                             <li><a style="color: #b6b9bf;" href="${source}/index">首页</a></li>
-                            <li class="active">客户管理</li>
+
                         </ul>
                         <ul class="breadcrumb-elements">
 

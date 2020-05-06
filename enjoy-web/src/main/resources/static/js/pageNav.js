@@ -61,12 +61,12 @@ $.fn.pageNav = function (title) {
 
     if(title) {
         $("#back_li").html("<a style=\"color: #b6b9bf;\" href=\"javascript:loadMenu();\"><i class=\"icon-arrow-left8 position-left\"></i>返回</a>");
-        $(this).append("<li><a style=\"color: #b6b9bf;\" href=\"/smartad-web/index\">首页</a></li>");
+        $(this).append("<li><a style=\"color: #b6b9bf;\" href=\"/enjoy-web/index\">首页</a></li>");
         $(this).append("<li>" + pageNav.pageMenu + "</li>");
         $(this).append("<li class=\"active\">" + title + "</li>");
     } else {
         $("#back_li").html("<a style=\"color: #b6b9bf;\" href=\"javascript:void(0);\"><i class=\"icon-arrow-left8 position-left\"></i>返回</a>")
-        $(this).append("<li><a style=\"color: #b6b9bf;\" href=\"/smartad-web/index\">首页</a></li>");
+        $(this).append("<li><a style=\"color: #b6b9bf;\" href=\"/enjoy-web/index\">首页</a></li>");
         $(this).append("<li class=\"active\">" +pageNav.pageMenu+ "</li>");
     }
 };

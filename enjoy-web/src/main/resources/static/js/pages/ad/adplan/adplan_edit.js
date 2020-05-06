@@ -495,7 +495,7 @@ function reloadEstimate(){
         return targeting;
     }
 
-    $.ajax({url:"/smartad-web/admin/ad/admanager/estimation/get/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/estimation/get/"+aId,
         data:params,
         type:"POST",
         success:function(data){
@@ -653,7 +653,7 @@ function saveAdGroup(){
     layer.load(1, {
         shade: [0.5, '#cac6c5'] //0.5透明度的白色背景
     });
-    $.ajax({url:"/smartad-web/admin/ad/admanager/adgroup/updateToGdt/"+aId,
+    $.ajax({url:"/enjoy-web/admin/ad/admanager/adgroup/updateToGdt/"+aId,
         data:params,
         type:"POST",
         success:function(data){
@@ -926,7 +926,7 @@ function searchtags(type){
         keyword = $("#search_input_behavior").val();
     }
     if(keyword != ""){
-        $.ajax({url:"/smartad-web/admin/ad/admanager/target_tags/behavior_interest/get/"+aId,
+        $.ajax({url:"/enjoy-web/admin/ad/admanager/target_tags/behavior_interest/get/"+aId,
             data:{type:type,keyword:keyword},
             type:"GET",
             success:function(data){

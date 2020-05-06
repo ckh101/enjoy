@@ -90,7 +90,7 @@ $(function () {
 						<td>${obj.account}</td>
 						<td>${obj.userName}</td>
 						<td>${obj.phone}</td>
-						<td>${obj.role.roleName}</td>
+						<td></td>
 						<td class="dictionary" data-source="accountType" data-value="${obj.accountType}"></td>
 						<td class="dictionary" data-source="systemStatus" data-value="${obj.systemStatus}"></td>
                         <c:choose>

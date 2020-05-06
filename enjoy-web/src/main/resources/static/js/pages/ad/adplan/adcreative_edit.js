@@ -7,12 +7,12 @@ $(function () {
         $("#adcreative_video_source").attr('src',imgurl);
         $("#adcreative_video").show();
     }
-    initFileInput("adcreativeImg","adcreativeImgurl","adcreativeImgBtn","smartad/adcreativeImg");
+    initFileInput("adcreativeImg","adcreativeImgurl","adcreativeImgBtn","enjoy/adcreativeImg");
 });
 function initFileInput(fileId,fileInputId,uploadbtn){
     $("#"+fileId).fileinput({
         language : 'zh',
-        uploadUrl:"/smartad-web/admin/advertisers/uploadImage",
+        uploadUrl:"/enjoy-web/admin/advertisers/uploadImage",
         uploadExtraData: function(previewId, index) {   //该插件可以向您的服务器方法发送附加数据。这可以通过uploadExtraData在键值对中设置为关联数组对象来完成。所以如果你有设置uploadExtraData={id:'kv-1'}，在PHP中你可以读取这些数据$_POST['id']
             return {aId: aId, adcreative_type:adcreative_type};
         },
@@ -116,7 +116,7 @@ function saveAdCreative(){
         cancelButtonText: "取消"
     }).then((result) => {
         if (result.value) {
-            $.ajax({url:"/smartad-web/admin/ad/admanager/ad/updatecreative/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/updatecreative/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){

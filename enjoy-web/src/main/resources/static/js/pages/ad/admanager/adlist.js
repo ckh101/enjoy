@@ -283,7 +283,7 @@ function preBatchcopy() {
     $("#modal_theme_success").modal('show');
 }
 
-var taskmonitor = $.taskmonitor({queryUrl : '/smartad-web/admin/ad/task/batch/queryTaskState'}).active();
+var taskmonitor = $.taskmonitor({queryUrl : '/enjoy-web/admin/ad/task/batch/queryTaskState'}).active();
 function batchcopy(){
     var _ids = [];
     $('input[name="ad_check"]:checked').each(function(){
@@ -314,7 +314,7 @@ function batchcopy(){
 
     params["taskType"] = 'adCopy';
     params["idList"] = _ids;
-    // $.ajax({url:"/smartad-web/admin/ad/admanager/ad/adplan/batchcopy/"+aId,
+    // $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/adplan/batchcopy/"+aId,
     //     data:params,
     //     type:"POST",
     //     success:function(data){
@@ -331,7 +331,7 @@ function batchcopy(){
     // });
 
     $.ajax({
-        url: "/smartad-web/admin/ad/task/batch/add/" + aId,
+        url: "/enjoy-web/admin/ad/task/batch/add/" + aId,
         type: "POST",
         contentType: 'application/json',
         data: JSON.stringify(params),
@@ -371,7 +371,7 @@ function batchdel(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(_ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/ad/adplan/batchdel/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/adplan/batchdel/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){
@@ -410,7 +410,7 @@ function batchsub(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(_ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/ad/adplan/batchsub/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/adplan/batchsub/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){
@@ -448,7 +448,7 @@ function batchon(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(_ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/ad/adplan/batchon/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/adplan/batchon/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){
@@ -475,7 +475,7 @@ function changeCampaignTypeForBatchCopy(){
             return;
         }
         $("#campaign_div").show();
-        $.ajax({url:"/smartad-web/admin/ad/admanager/campaign/list_by_account/"+aId+"/"+accountId,
+        $.ajax({url:"/enjoy-web/admin/ad/admanager/campaign/list_by_account/"+aId+"/"+accountId,
             type:"POST",
             success:function(data){
                 if (data.status == 1) {
@@ -508,7 +508,7 @@ function editName(obj, id){
         input.attr("readonly", "readonly");
         params["adId"]=id;
         params["adName"]=input.val();
-        $.ajax({url:"/smartad-web/admin/ad/admanager/ad/editname/"+aId,
+        $.ajax({url:"/enjoy-web/admin/ad/admanager/ad/editname/"+aId,
             type:"POST",
             data:params,
             success:function(data){

@@ -74,7 +74,7 @@
             map.setCenter(province+city+district);
             map.setZoom(13);
         }
-        $.get("/smartad-web/intf/ddt_data/search_orders",{city:city,district:district},function(data){
+        $.get("/enjoy-web/intf/ddt_data/search_orders",{city:city,district:district},function(data){
             var array = data.data;
             if(array != null){
                 var points = [];  // 添加海量点数据
@@ -97,7 +97,7 @@
             }
         });
     }
-    $.get("/smartad-web/intf/ddt_data/district_order_counts",function(data){
+    $.get("/enjoy-web/intf/ddt_data/district_order_counts",function(data){
         var array = data.data;
         for(var i = 0; i < array.length; i++){
             var obj = array[i];

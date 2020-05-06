@@ -45,7 +45,7 @@
 
     $('body').append(_modal);
     var _detailModal = $('#taskDetailModal');
-    const _taskIdItemName = "smartad-task-id-list";
+    const _taskIdItemName = "enjoy-task-id-list";
     var _singleInstance;
 
     function pushTaskId(_taskId) {

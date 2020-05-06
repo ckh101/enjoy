@@ -81,7 +81,7 @@ function batchdel(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/adplan/batchdel/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/adplan/batchdel/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){
@@ -120,7 +120,7 @@ function batchsub(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/adplan/batchsub/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/adplan/batchsub/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){
@@ -158,7 +158,7 @@ function batchon(){
         if (result.value) {
             var params = {};
             params["ids"]=JSON.stringify(ids);
-            $.ajax({url:"/smartad-web/admin/ad/admanager/adplan/batchon/"+aId,
+            $.ajax({url:"/enjoy-web/admin/ad/admanager/adplan/batchon/"+aId,
                 data:params,
                 type:"POST",
                 success:function(data){

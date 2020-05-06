@@ -366,7 +366,7 @@ function initFileInput(fileId,fileInputId,uploadbtn,filepath){
 }
 function updateLoad(file,fileInput,filepath){
     var key = filepath+"/"+file.name;
-    $.ajax({url: "/smartad-web/admin/user/getQiNiuToken", success: function(res){
+    $.ajax({url: "/enjoy-web/admin/user/getQiNiuToken", success: function(res){
             var token = res.token;
             var domain = res.domain;
             var config = {

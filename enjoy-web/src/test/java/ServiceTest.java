@@ -1,4 +1,4 @@
-import com.hbnet.fastsh.FastshApplication;
+import com.ckh.enjoy.FastshApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
