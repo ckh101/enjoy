@@ -1,0 +1,13 @@
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd" version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>el</short-name>
+
+    <!-- 将对象format成json字符串 -->
+    <function>
+        <name>toJsonString</name>
+        <function-class>com.hbnet.fastsh.utils.ELToJson</function-class>
+        <function-signature>java.lang.String toJson(java.lang.Object)</function-signature>
+        <example>${el:toJsonString(value)}</example>
+    </function>
+</taglib>

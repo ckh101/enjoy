@@ -1,0 +1,32 @@
+.panel_nav {
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.panel_nav > div {
+    text-align: center;
+    width: 30%;
+    border-right: 1px solid #eee;
+}
+.panel_nav > div > p:last-of-type {
+    font-size: 16px;
+}
+.panel_nav > div:last-of-type {
+    border: none;
+}
+.border_b {
+    border-bottom: 1px solid #eee;
+}
+.padding_15_t_b {
+    padding: 15px 0 !important;
+}
+.margin_t_5 {
+    margin-top: 5px;
+}
+.font_bold {
+    font-weight: 600;
+}
+.bottom-border{
+    border-bottom: 1px solid #e5e5e5;
+}

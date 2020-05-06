@@ -1,0 +1,93 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.smartad",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SmartAdJpaConfig",
+      "sourceMethod": "dataSource()"
+    },
+    {
+      "name": "spring.memcached",
+      "type": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.memcached.failback",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.memcached.failover",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.memcached.init-conn",
+      "type": "java.lang.Integer",
+      "description": "初始化连接数",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.maint-sleep",
+      "type": "java.lang.Long",
+      "description": "睡眠时长",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.max-conn",
+      "type": "java.lang.Integer",
+      "description": "最大连接数",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.min-conn",
+      "type": "java.lang.Integer",
+      "description": "最小连接数",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.nagle",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.memcached.prefix",
+      "type": "java.lang.String",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig"
+    },
+    {
+      "name": "spring.memcached.servers",
+      "type": "java.lang.String[]",
+      "description": "服务地址",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig"
+    },
+    {
+      "name": "spring.memcached.socket-connect-t-o",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.socket-t-o",
+      "type": "java.lang.Integer",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.memcached.weights",
+      "type": "java.lang.Integer[]",
+      "description": "权重",
+      "sourceType": "com.hbnet.fastsh.web.service.config.SockIOPoolConfig"
+    }
+  ],
+  "hints": []
+}

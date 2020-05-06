@@ -9,12 +9,18 @@
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ckh</groupId>
-    <artifactId>enjoy</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.hbnet</groupId>
+    <artifactId>smartad</artifactId>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>enjoy-web</module>
+        <module>smartad-utils</module>
+        <module>smartad-services</module>
+        <module>smartad-web</module>
+        <module>smartad-engine</module>
+        <module>smartad-dubbo</module>
+        <module>smartad-mongodb</module>
+        <module>smartad-redis</module>
     </modules>
     <repositories>
         <repository>
@@ -59,20 +65,28 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
+
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -90,18 +104,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpasyncclient</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
@@ -140,11 +142,7 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.6.3</version>
-        </dependency>
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -189,7 +187,7 @@
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>3.2.8</version>
+            <version>4.0.3</version>
         </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>
@@ -217,6 +215,10 @@
             <artifactId>guava</artifactId>
             <version>19.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
     <profiles>
         <profile>
@@ -238,9 +240,9 @@
         </profile>
         <profile>
             <!-- 生产环境 -->
-            <id>pro</id>
+            <id>online</id>
             <properties>
-                <profiles.active>pro</profiles.active>
+                <profiles.active>online</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -253,7 +255,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.ckh.enjoy.EnjoyWebApplication</mainClass>
+                    <mainClass>com.hbnet.fastsh.monitor.FastshApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

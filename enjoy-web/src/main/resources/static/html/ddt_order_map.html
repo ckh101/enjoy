@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #l-map{height:100%;width:78%;float:left;border-right:2px solid #bcbcbc;}
+        #r-result{height:100%;width:20%;float:left;}
+    </style>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="../../static/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/core.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/components.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="../../static/js/plugins/layer/theme/default/layer.css" rel="stylesheet" type="text/css">
+    <link href="../../static/js/plugins/validation/bootstrapValidator.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="../../static/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="../../static/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/js/core/libraries/jQuery.form.js"></script>
+    <script type="text/javascript" src="../../static/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/js/plugins/loaders/blockui.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+
+
+<div class="table-responsive" id="table">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>省份</th>
+            <th>城市</th>
+            <th>区域</th>
+            <th>订单数</th>
+        </tr>
+        </thead>
+        <tbody id="table_data">
+
+        </tbody>
+    </table>
+</div>
+<div><button type="button" class="btn bg-primary-700" onclick="javacsript:$('#table').show();">显示表格</button></div>
+<div id="allmap"></div>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=TO7wHkaxbpWaGKbIsV2HtYHvSHgmKx5K"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var map = null;
+    function addMarker(point,text){
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        /*var label = new BMap.Label(text,{offset:new BMap.Size(20,-10)});
+        marker.setLabel(label);*/
+    }
+    function showmap(province,city, district){
+        $("#table").hide();
+        if(map == null){
+            map = new BMap.Map("allmap");
+            map.centerAndZoom(province+city+district, 13);
+            map.enableScrollWheelZoom();
+        }else{
+            map.clearOverlays();
+            map.setCenter(province+city+district);
+            map.setZoom(13);
+        }
+        $.get("/smartad-web/intf/ddt_data/search_orders",{city:city,district:district},function(data){
+            var array = data.data;
+            if(array != null){
+                var points = [];  // 添加海量点数据
+                var options = {
+                    shape: BMAP_POINT_SHAPE_WATERDROP
+                }
+
+                for(var i = 0; i < array.length; i++){
+                    var obj = array[i];
+                    var point = new BMap.Point(obj.lng, obj.lat);
+                    point.product_name = obj.product_name;
+                    points.push(point);
+                    //addMarker(point, obj.product_name);
+                }
+                var pointCollection = new BMap.PointCollection(points, options);  // 初始化PointCollection
+                pointCollection.addEventListener('click', function (e) {
+                    alert(e.point.product_name);  // 监听点击事件
+                });
+                map.addOverlay(pointCollection);  // 添加Overlay
+            }
+        });
+    }
+    $.get("/smartad-web/intf/ddt_data/district_order_counts",function(data){
+        var array = data.data;
+        for(var i = 0; i < array.length; i++){
+            var obj = array[i];
+            $("#table_data").append("<tr><td>"+obj.province+"</td><td>"+obj.city+"</td><td>"+obj.district+"</td><td><a href='javascript:void(0);' onclick='showmap(\""+obj.province+"\",\""+obj.city+"\",\""+obj.district+"\")'>"+obj.ordernums+"</a></td></tr>")
+        }
+    });
+
+</script>
+</body>
+</html>
