@@ -88,12 +88,12 @@ public class ElasticJobConfig {
     }
 
 
-    @Bean(name="simpleJobDemo",initMethod = "init")
+    @Bean(name="simpleJobDemoJob",initMethod = "init")
     @Primary
-    public JobScheduler simpleJobDemo(final SimpleJobDemo simpleJobDemo, @Value("*/1 * * * * ?") final String cron) {
+    public JobScheduler simpleJobDemoJob(final SimpleJobDemo simpleJobDemo, @Value("*/1 * * * * ?") final String cron) {
 
         return new SpringJobScheduler(simpleJobDemo, regCenter(),
-                getLiteJobConfiguration(simpleJobDemo.getClass(), cron, 2, "0=A1,1=B1"),
+                getLiteJobConfiguration(simpleJobDemo.getClass(), cron, 1, "0=A1"),
                 jobEventConfiguration(), elasticJobListener());
     }
 

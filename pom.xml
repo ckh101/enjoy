@@ -18,9 +18,11 @@
         <module>enjoy-services</module>
         <module>enjoy-web</module>
         <module>enjoy-engine</module>
-        <module>enjoy-dubbo</module>
+        <module>enjoy-dubbo-provider</module>
         <module>enjoy-mongodb</module>
         <module>enjoy-redis</module>
+        <module>enjoy-dubbo-api</module>
+        <module>enjoy-dubbo-consumer</module>
     </modules>
     <repositories>
         <repository>
@@ -217,16 +219,29 @@
             <id>dev</id>
             <properties>
                 <profiles.active>dev</profiles.active>
+                <service.active>servicedev</service.active>
+                <redis.active>redisdev</redis.active>
+                <mongodb.active>mongodbdev</mongodb.active>
+                <dubbo.active>dubbodev</dubbo.active>
+                <rocketmq.active>rocketmqdev</rocketmq.active>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
             <!-- 测试环境 -->
             <id>test</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <profiles.active>test</profiles.active>
+                <service.active>servicetest</service.active>
+                <redis.active>redistest</redis.active>
+                <mongodb.active>mongodbtest</mongodb.active>
+                <dubbo.active>dubbotest</dubbo.active>
+                <rocketmq.active>rocketmqtest</rocketmq.active>
             </properties>
         </profile>
         <profile>
@@ -234,9 +249,14 @@
             <id>pro</id>
             <properties>
                 <profiles.active>pro</profiles.active>
+                <service.active>servicepro</service.active>
+                <redis.active>redispro</redis.active>
+                <mongodb.active>mongodbpro</mongodb.active>
+                <dubbo.active>dubbopro</dubbo.active>
+                <rocketmq.active>rocketmqpro</rocketmq.active>
             </properties>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
         </profile>
     </profiles>

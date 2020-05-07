@@ -11,7 +11,7 @@
 
     <groupId>com.ckh</groupId>
     <artifactId>enjoy-engine</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.ckh</groupId>
