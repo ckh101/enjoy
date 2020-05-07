@@ -1,4 +1,4 @@
-package com.ckh.enjoy.dubbo.provider;
+package com.ckh.enjoy.dubbo.consumer;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableDubbo
 @SpringBootApplication
-public class ProviderApplication {
+public class DubboConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProviderApplication.class, args);
+        SpringApplication.run(DubboConsumerApplication.class, args);
     }
 }

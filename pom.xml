@@ -23,6 +23,9 @@
         <module>enjoy-redis</module>
         <module>enjoy-dubbo-api</module>
         <module>enjoy-dubbo-consumer</module>
+        <module>enjoy-rocketmq-producer</module>
+        <module>enjoy-rocketmq-consumer</module>
+        <module>enjoy-rocketmq-common</module>
     </modules>
     <repositories>
         <repository>
