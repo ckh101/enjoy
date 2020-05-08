@@ -13,6 +13,18 @@
 * enjoy-utils <br/>
 * enjoy-web <br/>
 ## 技术栈与使用说明 <br/>
-### springboot2.x,jdk1.8+, spring data, mysql,hikaricp,mongodb,redis,memcached,elasticjob,dubbo,rocketmq,shiro,微信登录
+### springboot2.x <br/>
+### jdk1.8+ <br/>
+### spring data <br/>
+### mysql <br/>
+### hikaricp <br/>
+### mongodb <br/>
+### redis <br/>
+### memcached <br/>
+### elasticjob <br/>
+### dubbo <br/>
+### rocketmq <br/>
+### apache shiro <br/>
+### 微信登录 <br/>
 ## 后续更新 <br/>
 添加spring cloud支持...
